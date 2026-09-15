@@ -1,417 +1,293 @@
-# 奏和市：現行RDL概念マップ v0.2
+# 奏和市 使用RDL概念
 
-## 0. 目的
-
-この文書は、奏和市で使っている考え方を、**現在の `Aporapeiron/RDL_Core` の意味境界へ対応づけるための索引**である。
-
-奏和市はRDLの応用事例であり、Core概念の定義元ではない。
-
-```text
-RDL_Core
-= semantic authority
-
-RDL_Sowa_City
-= application / thought experiment
-```
-
-過去の奏和市文書には、旧 `限界空間 / 形而上空間 / EFP（素流圧） / M_B=整合慣性 / ξ=揺らぎ / 旧T0〜T5` 等が含まれていた。
-
-これらを現行RDLのCore定義としては使用しない。
+> 本文書は、奏和市で使用するRDL概念を現行体系へ対応づけるための索引である。
+>
+> 奏和市固有の応用語彙を、RDL Core primitiveと混同しない。
 
 ---
 
-## 1. T0 基盤層との対応
+## 1. T0：基盤層
 
-### SILN
-
-奏和市では、分析目的に応じて都市全体・地区・共同体・個人・金属族・プラクシス・制度などを、SILNとして対象化できる。
-
-ただし、
-
-```text
-奏和市 = SILN
-```
-
-と常に固定するわけではない。
-
-Purpose / B に応じて、どの構造を対象SILNとして扱うかを明示する。
-
-例：
-
-```text
-Purpose: 地区間対立を検査する
-Target SILN: District A / District B / inter-district relation structure
-
-Purpose: 金属族との依存関係を検査する
-Target SILN: Human-Metal relational structure
-```
+| 概念 | 奏和市での扱い |
+|---|---|
+| **SILN** | 人間、妖精族（仮）、地区、文化、制度、Praxis等を、必要な境界で有限な関係構造として扱うための基礎 |
+| **B** | Praxisや各主体が扱える有限な観測・記述・判断境界。都市全体を無境界に観測することは前提としない |
+| **M_B** | B内で安定している関係拘束構造。市民・地区・文化・Praxis等について有限に構成される |
+| **RIB / RIB_B** | 対象が参加する相互作用と、そのうちPurpose / finite Bで選ばれた有限断面 |
+| **ξ** | 現在の有限Bによる記述が、関係全体を終端的に回収したとは保証できないこと。秘密情報・ノイズ・ランダム性そのものではない |
+| **[B-ξ]** | `∀ B_finite : ξ(B) != 0`。奏和市やPraxisも自己例外化しない |
+| **Aporapeiron** | 有限閉包が終端化せず、再検査・再構成可能性を残すという基底的見方 |
+| **ADDξ** | 現在の閉包を終端化せず、残余関係を保持したまま再検査可能にする操作。奏和市ではPraxis自己モデル等への適用候補 |
 
 ---
 
-### RIB / RIB_B
+## 2. T0最低動作仕様との対応
 
-奏和市で旧来「環境から与える圧」「素流圧」と呼んでいたものを、そのまま一つのCore変数へ置き換えない。
-
-現在は、
+奏和市での基本的な読み方：
 
 ```text
-都市環境
-人との遭遇
-仕事負荷
-祭礼
-移動条件
-金属族との接触
-評判
-自然条件
+SILN
+  ↕
+{RIB_1, RIB_2, ..., RIB_n, ...}
+  ↓ Purpose / finite B
+RIB_B
+  ↓
+F = interp(M_B, RIB_B)
+  ↓
+F' → E → review
+             ├─ resolved / local
+             └─ reviewed unresolved remainder → H
+                                      ↓
+                                   θ / M_Δ
+                                      ↓
+                           展開・検査・再構成
 ```
 
-などを、対象との相互作用へ参加する複数の `RIB` として考え、有限Bで選ばれた作用断面を `RIB_B` として扱う。
+重要：
 
-```text
-EFP / 素流圧
-→ deprecated as Core term
+> **Eが非ゼロだから自動的にHへ入るわけではない。**
 
-interaction bundles
-→ RIB
-
-finite selected interaction section
-→ RIB_B
-```
+奏和市で「葛藤がある」「予想外が起きた」ことと、
+それが未解決負荷として蓄積することは分ける。
 
 ---
 
-### B
+## 3. F / E / H
 
-`B` は奏和市の設計上きわめて重要である。
-
-プラクシスも市民も金属族も、都市全体のすべての関係を一度に取得しない。
-
-例：
-
-```text
-B_person
-B_household
-B_district
-B_event
-B_city_operation
-B_long_term_culture
-```
-
-これらは固定的な自然階層ではなく、用途・問いに応じた有限境界である。
+| 概念 | 奏和市での扱い |
+|---|---|
+| **F** | 現在のM_BとRIB_Bのもとでの局所的解釈・作用評価 |
+| **F'** | 新しい観測・相互作用後の評価 |
+| **E** | FとF'の差分。差分があるだけで危機とはしない |
+| **H** | 有限な検査・レビューを経ても未解決として残った負荷の蓄積。恐怖・ストレス等と同一視しない |
+| **θ** | 応用上の再検査・再構成開始条件の候補 |
+| **M_Δ** | 現在の構造を固定せず、展開・検査・再構成へ移る相 |
 
 ---
 
-### M_B
+## 4. T1：SILN操作層
 
-`M_B` は「整合慣性」という都市固有の曖昧な総量ではない。
+奏和市では主に次を用いる。
 
-現行Coreでは、有限Bのもとで解釈・予測・応答・更新を拘束する自己側有限関係拘束構造として扱う。
+### 展開
 
-奏和市では例えば、
+対象を単一説明へ固定せず、
 
-- 市民がある地区をどう理解しているか
-- 金属族が特定の人との関係をどう保持しているか
-- プラクシスが現在の有限運用境界でどの関係拘束を保持しているか
+- 個人
+- 関係
+- 地区
+- 文化
+- 制度
+- 技術
+- 歴史
+- Praxis自身
 
-を分析する際に `M_B` が関係する。
+へ複数断面を開く。
 
-```text
-M_B
-!= personality score
-!= happiness score
-!= inertia scalar
-```
+### 検査・選別
 
----
+- どの不整合が局所で吸収可能か
+- どの経路が自己強化するか
+- どの技術・概念接続が破局へつながるか
+- どの介入が依存や支配を増やすか
 
-### F
+を検査する。
 
-`F` は `interp(M_B, RIB_B)` による有限な作用解釈・予測として扱う。
+### 再構成
 
-同じ都市イベントでも、異なる市民・金属族・地区が異なる `M_B` を持てば、異なる `F` を形成しうる。
+破局回避のために、
 
-例：
+- 距離
+- 役割
+- 制度
+- 動線
+- 資源
+- 文化的意味
+- 接続関係
 
-```text
-同じ祭礼の混雑
-→ ある市民には楽しい交流
-→ 別の市民には負荷
-→ 金属族には救助・誘導条件
-```
+を組み替える。
 
-これは `F` が一つの感情ラベルそのものという意味ではない。
+### ΔB
 
----
+同じ問題を、
 
-### E / H / θ / M_Δ
+- 個人
+- 家族
+- 地区
+- 都市
+- 世代
+- 歴史
 
-奏和市旧文書では `E=誤差量`、`H=熱` として都市スケールの幸福管理に直接使っていたが、この読みは現行Coreへそのまま持ち込まない。
-
-現行では概念的に、
-
-```text
-F / F'
-↓
-E = difference
-↓ finite assessment
-unresolved remainder
-↓
-H
-↓ compare with θ
-M_Δ when required
-```
-
-という意味境界を維持する。
-
-したがって、
-
-```text
-市民が不機嫌
-→ H += 1
-
-地区対立が激しい
-→ H = conflict score
-```
-
-のような直接対応はしない。
-
-奏和市固有の幸福・緊張・対立・回復可能性などの評価指標が必要なら、GameAI-local / Sowa-local descriptorとして別に定義する。
+など別境界で再観測する。
 
 ---
 
-### ξ / [B-ξ]
+## 5. T2：奏和市固有の応用語彙
 
-奏和市にとって最重要の注意条件の一つ。
+以下はRDL Core primitiveではない。
+
+| 奏和市語彙 | 役割 |
+|---|---|
+| **動的幸福** | 不幸ゼロではなく、失敗・葛藤・喪失から再び生きられる状態へ戻れる関係動態 |
+| **破局的不整合** | 局所的不整合が固定化・自己強化・広域波及し、回復困難な破断へ接続する状態候補 |
+| **三重の無知** | 人間、妖精族（仮）、生活世界から見たPraxisの認識遮蔽構造 |
+| **概念工学的な実質的焚書** | 危険な完成知識の禁止より、そこへ到達しやすい概念地図・接続経路を社会的に細らせる設計 |
+| **局所関係調整個体** | 妖精族（仮）を設計・運用側から記述する機能名 |
+| **妖精族（仮）** | 住民が一つの社会的種族として認識する作中呼称 |
+| **スロー表層** | 高度な裏側に対し、生活世界の変化頻度を意図的に下げる都市設計 |
+| **季節変動窓** | 退屈・探索圧を周期的な文化変動へ流す応用設計 |
+| **還界の理** | 死と喪失を共同体内で処理するための文化的再意味化 |
+
+---
+
+## 6. PraxisのRDL上の位置
+
+Praxisは、
 
 ```text
-∀B_finite : ξ(B) != 0
-```
-
-ここで `ξ` は、
-
-```text
-randomness
-uncertainty score
-unknown count
-failure count
-fluctuation amount
+observer outside Sowa City
 ```
 
 ではない。
 
-現在の有限Bでは回収されない関係が残ることを示す。
+Praxis自身もSowa CityのSILNへ参加する内部要素であり、
+複数のRIBへ参加し、有限BのもとでRIB_Bを選び、有限なM_Bを構成する。
 
-したがって、プラクシスが広域観測を行っても、
-
-```text
-Praxis observes more
-!= Praxis reaches ξ = 0
-```
-
-である。
-
-奏和市の安定も、都市全体の終端的閉包を意味しない。
-
----
-
-### [SELF]
-
-奏和市・プラクシス・幸福維持Purpose・本概念マップそのものも、例外化しない。
+したがって、
 
 ```text
-RDL applies to Sowa City
+Praxis model complete under current B
 and
-Sowa City's RDL reading is itself revisable
+ξ(B) != 0
 ```
 
-特に、
+は両立する。
 
-> 「幸福維持のためだからこの介入は正しい」
-
-を自己正当化の終端条件にしてはならない。
+Praxisは高能力でも、終端的な全知主体にはしない。
 
 ---
 
-## 2. T1 SILN操作層との対応
+## 7. 妖精族（仮）のRDL上の位置
 
-### 展開 / Expansion
-
-都市で問題が発生した際、最初から一つの原因へ閉じず、関係候補を展開する。
-
-例：地区間対立なら、
+妖精族（仮）を、
 
 ```text
-resource distribution
-history
-festival rivalry
-transport
-reputation
-individual incidents
-weather
-Praxis intervention history
-Metal Tribe behavior
+Praxis → endpoint → human
 ```
 
-などを候補として開く。
+という単純な一方向端末にしない。
 
----
-
-### Probe
-
-介入は、都市全体を直接書き換える万能操作ではなく、有限な探りとして扱える。
-
-例：
+実際には、
 
 ```text
-meeting timing change
-route change
-small event placement
-support introduction
-temporary workload reduction
+Praxis
+↕
+妖精族（仮）
+↕
+human
+↕
+district / culture / environment
 ```
 
-を入れ、後続 `RIB_B` と解釈差を観察する。
+のように、複数関係へ参加する。
+
+個体の関係履歴そのものが、現在の局所構造に影響する。
 
 ---
 
-### Inspection & Selection
+## 8. 概念工学の扱い
 
-候補関係を、現在のPurpose / B / 許容損失 / provenanceのもとで検査する。
+概念工学的な実質的焚書は、RDL Core primitiveではなく奏和市固有の運用仮説である。
+
+RDLで分析する場合は、
+
+- どの概念がどの概念へ接続しているか
+- どの接続が高危険度技術へ到達しやすいか
+- どの接続を弱めると別の創造性まで失われるか
+- どこで破局回避と知的自由が衝突するか
+
+を有限Bごとに展開・検査する。
+
+ここでも完全封鎖は前提としない。
+
+---
+
+## 9. Layeringとの接続
+
+Praxis規模では、一つの階層だけで都市を整理しない。
+
+候補軸：
+
+- temporal scale
+- spatial scale
+- social scope
+- culture / institution
+- observability
+- stability
+- intervention cost
+- reversibility
+- dependency
+- break / risk
+- history depth
+
+必要なときだけ、
 
 ```text
-retain
-reject
-defer
+high-dimensional Layer Space
+↓ Purpose / finite B
+projection
+↓
+relevant axes
 ```
 
-のように、採用・棄却・保留を区別する。
+として扱う。
 
-奏和市では特に、短期的な幸福改善だけで選別しない。
-
-介入が、
-
-- 依存
-- 不可視支配
-- 地区文化の均質化
-- 自律性喪失
-- 長期的な回復経路減少
-
-を生んでいないかも検査対象とする。
+Layerは対象そのものではなく、用途に応じた整理道具である。
 
 ---
 
-### Reconstruction
+## 10. 現在使わない旧語彙
 
-選別後、必要なら `M_B'` を再構成する。
+現行奏和市文書では、以下を現在概念として使用しない。
 
-奏和市では、これは「都市を再プログラムする」ことと同一ではない。
+- SSD
+- 限界空間
+- 形而上空間
+- EFP / 素流圧
+- ξ = 揺らぎ
+- M_B = 整合慣性という固定定義
+- 旧T0〜T5体系
+- 汎用階層構造4層
+- RDL-GR
+- 網絡化演算子N
 
-対象が市民、金属族、プラクシス自身の運用モデルなど、どのSILN_SELFを扱っているかで再構成対象は異なる。
-
-また、再構成後も有限であり `ξ` は残る。
+歴史比較が必要な場合のみ旧資料として参照する。
 
 ---
 
-## 3. RDL_General_Modulesとの接続
-
-### RDL 横断レイヤリング_キット
-
-奏和市では、社会・都市構造を整理する補助Viewとして使える。
-
-例：
+## 11. 最短圧縮
 
 ```text
-Geography / Environment
-        ↓
-History / Culture
-        ↓
-Institution / City Rules
-        ↓
-District / Organization
-        ↓
-Individual
-        ↓
-Realtime Event
+奏和市
+= finite relational city under B
+
+Praxis
+= high-capability internal adjustment node
+
+妖精族（仮）
+= social species in lived world
+= local relational adjustment individuals in design view
+
+幸福
+= static absence of unhappiness ではない
+
+ξ
+= hidden secret ではない
+= terminal closure is not guaranteed
+
+local mismatch
+= allowed
+
+catastrophic break
+= intervention target
 ```
-
-これは存在論的な固定階層ではない。
-
-Purpose / B / Axisによって切り方は変わる。
-
-奏和市は特に、
-
-```text
-Layering != Hierarchy
-```
-
-を維持する必要がある。
-
-プラクシスが広域Layerを扱うからといって、存在論的に市民より上位であるとは限らない。
-
----
-
-## 4. 奏和市固有の応用概念
-
-以下はCore primitiveではなく、奏和市固有の設計概念である。
-
-| 概念 | 奏和市での意味 |
-|---|---|
-| **幸福維持** | 静止した快楽最大化ではなく、回復・再接続可能性を長期的に維持する設計Purpose |
-| **プラクシス** | 都市内部の広域観測・調整・保守機構 |
-| **金属族** | 都市機能と個体的関係形成を同時に担う人工的隣人種族 |
-| **非暴力制約** | プラクシス・金属族の通常解決経路から暴力的強制・誘導を外すSowa-local constraint |
-| **還界の理** | 死後に残る関係を共同体で再配置する文化的枠組み |
-| **地区共同体** | 都市内部の局所文化・技能・評判・関係形成単位 |
-| **不可視支援** | 市民の日常主体性を残しつつ背景側で致命的破断を防ぐ支援構造 |
-
-これらをRDL Coreへ自動昇格させない。
-
----
-
-## 5. 旧語彙の移行表
-
-| 旧文書の語 | 現在の扱い |
-|---|---|
-| 限界空間 | 使用しない。有限境界 `B` と `[B-ξ]` で扱う |
-| 形而上空間 | 独立基底として使用しない |
-| EFP / 素流圧 | Core語として廃止。相互作用は `RIB / RIB_B` へ分解して扱う |
-| M_B = 整合慣性 | 使用しない。`M_B` は自己側有限関係拘束構造 |
-| ξ = 揺らぎ | 使用しない。`ξ` は現在の有限Bで未回収の関係 |
-| E = 都市誤差量 | 使用しない。`E` は比較された解釈差 |
-| H = 熱 | 使用しない。`H` は有限assessment後の未解消残存不整合 |
-| 汎用階層構造4層 | 固定一般則にしない。必要なら横断レイヤリング・キットのProfileとして使う |
-| 旧T0〜T5 | 使用しない。CoreのT0 / T1 / TDと、外部応用・Moduleの責務へ再配置 |
-
----
-
-## 6. 奏和市を読む最小フロー
-
-```text
-対象 / Purposeを決める
-↓
-有限Bを置く
-↓
-対象SILNと関係するRIBを整理
-↓
-RIB_Bを取得
-↓
-M_BのもとでFを形成
-↓
-後続条件との差をEとして観測
-↓
-有限assessment
-↓
-必要ならT1で展開・検査・選別・再構成
-↓
-再び有限Bへ戻る
-↓
-ξは残る
-```
-
-奏和市は、このサイクルを「都市全体を一度に完全管理する」ためではなく、**複数スケールの有限な調整を繰り返すための思考実験**として利用する。
-
----
-
-## 7. 一文圧縮
-
-> **奏和市は、RDL Coreの有限B・SILN・RIB/RIB_B・M_B・F/E/H・ξ・T1操作を意味上の基準としつつ、幸福維持・非暴力制約・プラクシス・金属族・地区文化などをSowa-localな応用概念として検査する最大射程の都市思考実験である。**
